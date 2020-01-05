@@ -47,10 +47,10 @@ class MainActivity : AppCompatActivity() {
             uri = data.data
 
             val bitMap = MediaStore.Images.Media.getBitmap(contentResolver,uri)
-            val bitmapDrawable = BitmapDrawable(bitMap)
+           // val bitmapDrawable = BitmapDrawable(bitMap)
 
-            imageAdd.setBackgroundDrawable(bitmapDrawable)
-
+            circlImageselectedPhoto.setImageBitmap(bitMap)
+            imageAdd.alpha = 0f
 
         }
     }
@@ -103,6 +103,11 @@ class MainActivity : AppCompatActivity() {
         val user = User(uid, edtUserName.text.toString(),profileimageUrl )
         ref.setValue(user)
             .addOnSuccessListener {
+
+                val intent = Intent(this,LatestMessageActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+
                 Toast.makeText(this,"User Added To Database",Toast.LENGTH_LONG).show()
 
             }

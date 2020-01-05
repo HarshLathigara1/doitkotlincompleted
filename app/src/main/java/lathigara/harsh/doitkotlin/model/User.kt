@@ -1,4 +1,10 @@
 package lathigara.harsh.doitkotlin.model
 
-class User(val uid:String,val userName:String,val profileImageUrl:String)
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+class User(var uid:String,var userName:String,var profileImageUrl:String):Parcelable{
+    constructor() :this("","","")
+}
 
