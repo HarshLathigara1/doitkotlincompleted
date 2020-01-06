@@ -38,6 +38,11 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+        txtLogin.setOnClickListener {
+            var intent = Intent(this@MainActivity,LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
